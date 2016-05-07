@@ -1,0 +1,21 @@
+body {
+  margin: 0 auto;
+  background-color: #3366FF;
+}
+
+h1{
+  color: #FFF;
+}
+
+h2{
+  margin-left: 15px;
+}
+
+.col-sm-8{
+  border-radius: 30px;
+}
+
+.action-button{
+  width: 99%;
+  height: 30px;
+}
