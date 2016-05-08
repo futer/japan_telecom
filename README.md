@@ -1,7 +1,7 @@
 # Japan_telecom
 # Projekt_Telecom
 
-How lunch in RStudio:
+<b>How lunch in RStudio:</b>
 
 install.packages("shiny")
 
@@ -9,7 +9,7 @@ library(shiny)
 
 runGitHub( "japan_telecom", "futer")
 
-Used lib:
+<b>Used lib:</b>
 
 install.packages("shiny")
 
