@@ -31,7 +31,10 @@ shinyUI(fluidPage(
       actionButton("", label = "Plot4"),
       br(),
       br(),
-      actionButton("", label = "Plot5")
+      actionButton("", label = "Plot5"),
+      br(),
+      br(),
+      actionButton("", label = "Plot6")
     
     ),
     
@@ -41,7 +44,8 @@ shinyUI(fluidPage(
       plotOutput("plotTwo"),
       plotOutput("plotThree"),
       plotOutput("plot4th"),
-      plotOutput("plot5th")
+      plotOutput("plot5th"),
+      plotOutput("plot6th")
     )
     
   

@@ -137,4 +137,42 @@ shinyServer(function(input, output) {
     plotGgplot
   })
   
+  
+  ##Plot 6TH - scale##
+  
+  output$plot6th <- renderPlot({
+    df$Date <- as.Date(as.character(df$Date), format="%Y-%m-%d")
+    
+    # standardize scale => scale function
+    
+    df.stand <- as.data.frame(cbind(df[,1], scale(df[,2:ncol(df)])))
+    colnames(df.stand)[8] <- "Date"
+    df.stand$Date <- as.Date(df.stand$Date, origin="1970-01-01")
+    class(df.stand$Date)
+    x.stand <- df.stand[,1]
+    y.stand <- df.stand[,2:length(df.stand)]
+    df$Total <- NULL
+    df$Population<- NULL
+    df$F.pop<- NULL
+    df$M.pop<- NULL
+    
+    x <- x.stand
+    y <- y.stand
+    plotGgplot <- ggplot() +
+      geom_line(data = df, aes(x = x, y = y$Nttdocomo__pre_per, color=" nttdocomo_prepaid "), linetype = 2, size = 1.6) +
+      geom_line(data = df, aes(x = x, y = y$Nttdocomo__pos_per, color=" nttdocomo_postpaid "), linetype = 1, size = 1.6) +
+      geom_line(data = df, aes(x = x, y = y$softbank_pre_per, color=" softbank_prepaid "), linetype = 2, size = 1.6) +
+      geom_line(data = df, aes(x = x, y = y$softbank_pos_per, color=" softbank_postpaid "), linetype = 1, size = 1.6) +
+      geom_line(data = df, aes(x = x, y = y$kddi_pre_per, color=" kddi_prepaid "), linetype = 2, size = 1.6) +
+      geom_line(data = df, aes(x = x, y = y$kddi_pos_per, color=" kddi_postpaid "), linetype = 1, size = 1.6) +
+      ylab('Number of Subscribers') +
+      xlab('Year') +
+      scale_x_continuous(labels = comma) +
+      scale_y_continuous ( labels = comma, breaks = seq(from=0,to=3000000,by=200000)) +
+      ggtitle("Subscribers in Switzerland for Mobile Prepaid and Postpaid and its' competition in 2003-2015") +
+      theme(plot.title=element_text(size=8, face="bold",
+                                    hjust = 0.5),
+            axis.title=element_text(size=8))
+    plotGgplot
+  })
 })
