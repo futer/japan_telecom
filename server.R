@@ -146,13 +146,13 @@ shinyServer(function(input, output) {
     # standardize scale => scale function
     
     df.stand <- as.data.frame(cbind(df[,1], scale(df[,2:ncol(df)])))
-    colnames(df.stand)[8] <- "Date"
+    colnames(df.stand)[1] <- "Date"
     df.stand$Date <- as.Date(df.stand$Date, origin="1970-01-01")
     class(df.stand$Date)
     x.stand <- df.stand[,1]
     y.stand <- df.stand[,2:length(df.stand)]
     df$Total <- NULL
-    df$Population<- NULL
+    df$Population <- NULL
     df$F.pop<- NULL
     df$M.pop<- NULL
     
@@ -167,8 +167,8 @@ shinyServer(function(input, output) {
       geom_line(data = df, aes(x = x, y = y$kddi_postpaid, color=" kddi_postpaid "), linetype = 1, size = 1.6) +
       ylab('Number of Subscribers') +
       xlab('Year') +
-      scale_x_continuous(labels = comma) +
-      scale_y_continuous ( labels = comma, breaks = seq(from=0,to=190000000,by=5000000)) +
+      #scale_x_continuous(labels = comma) +
+      scale_y_continuous ( labels = comma, breaks = seq(from=0,to=3000000,by=200000)) +
       ggtitle("Subscribers in Japan for Mobile Prepaid and Postpaid and its' competition in 2000-2013") +
       theme(plot.title=element_text(size=8, face="bold",
                                     hjust = 0.5),
