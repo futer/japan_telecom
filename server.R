@@ -159,16 +159,16 @@ shinyServer(function(input, output) {
     x <- x.stand
     y <- y.stand
     plotGgplot <- ggplot() +
-      geom_line(data = df, aes(x = x, y = y$Nttdocomo__pre_per, color=" nttdocomo_prepaid "), linetype = 2, size = 1.6) +
-      geom_line(data = df, aes(x = x, y = y$Nttdocomo__pos_per, color=" nttdocomo_postpaid "), linetype = 1, size = 1.6) +
-      geom_line(data = df, aes(x = x, y = y$softbank_pre_per, color=" softbank_prepaid "), linetype = 2, size = 1.6) +
-      geom_line(data = df, aes(x = x, y = y$softbank_pos_per, color=" softbank_postpaid "), linetype = 1, size = 1.6) +
-      geom_line(data = df, aes(x = x, y = y$kddi_pre_per, color=" kddi_prepaid "), linetype = 2, size = 1.6) +
-      geom_line(data = df, aes(x = x, y = y$kddi_pos_per, color=" kddi_postpaid "), linetype = 1, size = 1.6) +
+      geom_line(data = df, aes(x = x, y = y$nttdocomo_prepaid, color=" nttdocomo_prepaid "), linetype = 1, size = 1.6) +
+      geom_line(data = df, aes(x = x, y = y$nttdocomo_postpaid, color=" nttdocomo_postpaid "), linetype = 1, size = 1.6) +
+      geom_line(data = df, aes(x = x, y = y$softbank_prepaid, color=" softbank_prepaid "), linetype = 1, size = 1.6) +
+      geom_line(data = df, aes(x = x, y = y$softbank_postpaid, color=" softbank_postpaid "), linetype = 1, size = 1.6) +
+      geom_line(data = df, aes(x = x, y = y$kddi_prepaid, color=" kddi_prepaid "), linetype = 1, size = 1.6) +
+      geom_line(data = df, aes(x = x, y = y$kddi_postpaid, color=" kddi_postpaid "), linetype = 1, size = 1.6) +
       ylab('Number of Subscribers') +
       xlab('Year') +
       scale_x_continuous(labels = comma) +
-      scale_y_continuous ( labels = comma, breaks = seq(from=0,to=3000000,by=200000)) +
+      scale_y_continuous ( labels = comma, breaks = seq(from=0,to=190000000,by=5000000)) +
       ggtitle("Subscribers in Switzerland for Mobile Prepaid and Postpaid and its' competition in 2003-2015") +
       theme(plot.title=element_text(size=8, face="bold",
                                     hjust = 0.5),
