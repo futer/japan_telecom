@@ -169,7 +169,7 @@ shinyServer(function(input, output) {
       xlab('Year') +
       scale_x_continuous(labels = comma) +
       scale_y_continuous ( labels = comma, breaks = seq(from=0,to=190000000,by=5000000)) +
-      ggtitle("Subscribers in Switzerland for Mobile Prepaid and Postpaid and its' competition in 2003-2015") +
+      ggtitle("Subscribers in Japan for Mobile Prepaid and Postpaid and its' competition in 2000-2013") +
       theme(plot.title=element_text(size=8, face="bold",
                                     hjust = 0.5),
             axis.title=element_text(size=8))
