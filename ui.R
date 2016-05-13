@@ -7,46 +7,18 @@
 library(shiny)
 
 shinyUI(fluidPage(
-    headerPanel("Japan TeleCOM"),
-                  
-    includeCSS("styles.css"),
-    #
-    # Application title
-    titlePanel("Subscribers Market Share in Japan for Mobile Prepaid and Postpaid market and its' competition in 2000-2013"),
-
-    sidebarPanel
-    (
-      "Wybierz z listy:",
-      br(),
-      br(),
-      actionButton("", label = "Plot1"),
-      br(),
-      br(),
-      actionButton("", label = "Plot2"),
-      br(),
-      br(),
-      actionButton("", label = "Plot3"),
-      br(),
-      br(),
-      actionButton("", label = "Plot4"),
-      br(),
-      br(),
-      actionButton("", label = "Plot5"),
-      br(),
-      br(),
-      actionButton("", label = "Plot6")
-    
-    ),
-    
-    # Show a plot of the generated distrisbution
-    mainPanel(
-      plotOutput("plotOne"),
-      plotOutput("plotTwo"),
-      plotOutput("plotThree"),
-      plotOutput("plot4th"),
-      plotOutput("plot5th"),
-      plotOutput("plot6th")
-    )
-    
+  headerPanel("Japan TeleCOM"),
   
+  includeCSS("styles.css"),
+  #
+  # Application title
+  titlePanel("Subscribers Market Share in Japan for Mobile Prepaid and Postpaid market and its' competition in 2000-2013"),
+  
+  sidebarPanel(
+    selectInput("plotnumber", "Select plot", c("Plot1st", "Plot2nd", "Plot3th", "Plot4th", "Plot5th","Plot6th"), selected = "Plot1st")
+  ),
+  
+  mainPanel(
+    plotOutput("whichplot")
+  )
 ))
