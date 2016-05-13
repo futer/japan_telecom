@@ -3,7 +3,7 @@
 #
 # http://shiny.rstudio.com
 #
-
+library(leaflet)
 library(shiny)
 
 shinyUI(fluidPage(
@@ -15,10 +15,15 @@ shinyUI(fluidPage(
   titlePanel("Subscribers Market Share in Japan for Mobile Prepaid and Postpaid market and its' competition in 2000-2013"),
   
   sidebarPanel(
-    selectInput("plotnumber", "Select plot", c("Plot1st", "Plot2nd", "Plot3th", "Plot4th", "Plot5th","Plot6th"), selected = "Plot1st")
-  ),
+    selectInput("plotnumber", "Select plot", c("Plot1st", "Plot2nd", "Plot3th", "Plot4th", "Plot5th","Plot6th"), selected = "Plot1st"),
+    selectInput("mapnumber", "Select map", c("map"), selected = "map")
+    ),
   
   mainPanel(
-    plotOutput("whichplot")
+    
+    plotOutput("whichplot"),
+    
+    leafletOutput("mapping")
+    
   )
 ))

@@ -5,7 +5,7 @@
 #
 # http://shiny.rstudio.com
 #
-
+library(leaflet)
 library(shiny)
 library(xlsx) # to read excel files
 library(ggplot2) # to plot
@@ -19,6 +19,10 @@ shinyServer(function(input, output) {
   
   df <- dataFromExcel
   df2 <- dataFromExcel2
+  
+  # read geojson
+  japan_geojson <- readLines("japan.GeoJson", warn = FALSE)
+
   
   output$whichplot <- renderPlot({
     
@@ -166,8 +170,23 @@ shinyServer(function(input, output) {
               axis.title=element_text(size=8))
     }
     
+    
     plotGgplot
   })   
+  
+output$mapping <- renderLeaflet({
+    
+  if(input$mapnumber == 'map')
+  {
+    m <- leaflet() %>%
+      addTiles() %>%
+      addMarkers(lng=174.768, lat=-36.852,
+                 popup="The birthplace of R")
+    m
+  }
+  
+    
+  })
   
   
 })
