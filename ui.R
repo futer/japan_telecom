@@ -22,8 +22,8 @@ shinyUI(fluidPage(
   mainPanel(
     
     plotOutput("whichplot"),
-    
-    leafletOutput("mapping")
-    
+    br(),
+    leafletOutput("mapping"),
+    br()
   )
 ))
